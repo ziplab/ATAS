@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "atas-geometry"
+version = "0.1.0"
+description = "ATAS geometry service: reconstruction, registration, world versions and memory rendering"
+requires-python = ">=3.12"
+# PyTorch is installed separately for the local CUDA version; the exact tested
+# environment (including the bundled Vista4D/Pi3X/SAM3 requirements) is in
+# environment.snapshot.txt.
+dependencies = [
+    "numpy>=2",
+    "scipy",
+    "opencv-python-headless",
+    "imageio",
+    "OpenEXR",
+    "pillow",
+    "fastapi",
+    "uvicorn",
+    "python-multipart",
+    "threadpoolctl",
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[tool.setuptools.packages.find]
+include = ["atas_geometry*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "atas"
+version = "0.1.0"
+description = "ATAS client: screenplay -> multi-shot video against a persistent world state"
+requires-python = ">=3.12"
+dependencies = [
+    "numpy>=2",
+    "pillow",
+    "imageio",
+    "imageio-ffmpeg",
+    "opencv-python-headless",
+    "openai>=1.40",
+    "pydantic>=2",
+    "pydantic-settings>=2",
+    "pyyaml",
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.scripts]
+atas = "atas.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["atas*"]
+
+[tool.setuptools.package-data]
+"atas.compiler" = ["prompts/*.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

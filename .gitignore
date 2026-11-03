@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+build/
+dist/
+.venv*/
+venv/
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Run outputs, caches and weights
+/client/runs/
+/client/geometry_endpoint.json
+/geometry/models/
+/geometry/backbones/checkpoints/
+hf_cache/
+*.pt
+*.pth
+*.safetensors
+*.mp4
+*.exr
+*.npz
+*.ply
